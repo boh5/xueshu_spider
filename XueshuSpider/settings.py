@@ -54,6 +54,7 @@ COOKIES_ENABLED = False
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
    'XueshuSpider.middlewares.RandomUserAgentMiddleware': 543,
+   # 'XueshuSpider.middlewares.JSPageMiddleware': 545,
    # 'XueshuSpider.middlewares.RandomProxyMiddleware': 540,
    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
 }
@@ -71,6 +72,7 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'XueshuSpider.pipelines.MysqlTwistedPipeline': 300,
+    'XueshuSpider.pipelines.DefaultValuesPipeline': 299,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

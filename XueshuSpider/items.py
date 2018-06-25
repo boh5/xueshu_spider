@@ -45,4 +45,4 @@ class PaperItem(scrapy.Item):
     organization = scrapy.Field()
     date_year = scrapy.Field(input_processor=MapCompose(date_convert))
     url = scrapy.Field()
-    file_path = scrapy.Field()
+    is_down = scrapy.Field()

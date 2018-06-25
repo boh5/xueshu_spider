@@ -43,9 +43,19 @@ class MysqlTwistedPipeline(object):
         # 执行具体插入
         insert_sql = """
         insert into paper
-        (title, author, publication, cited, summary, key_word, organization, date_year, url, file_path) 
+        (title, author, publication, cited, summary, key_word, organization, date_year, url, is_down) 
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
         (cursor.execute(insert_sql, (item['title'], item['author'], item['publication'], item['cited'],
                                      item['summary'], ','.join(item['key_word']), item['organization'],
-                                     item['date_year'], item['url'], item['file_path'],)))
+                                     item['date_year'], item['url'], item['is_down'],)))
+
+
+class DefaultValuesPipeline(object):
+    # 设置 item默认值
+    def process_item(self, item, spider):
+        item.setdefault('summary', 'None')
+        item.setdefault('key_word', 'None')
+        item.setdefault('organization', 'None')
+        # ...
+        return item

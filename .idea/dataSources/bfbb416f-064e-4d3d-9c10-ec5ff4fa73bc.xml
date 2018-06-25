@@ -999,9 +999,11 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="241" name="file_path">
+    <column id="252" parent="241" name="is_down">
       <Position>10</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="253" parent="241" name="PRIMARY">
