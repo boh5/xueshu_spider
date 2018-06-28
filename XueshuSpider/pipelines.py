@@ -55,7 +55,7 @@ class DefaultValuesPipeline(object):
     # 设置 item默认值
     def process_item(self, item, spider):
         item.setdefault('summary', 'None')
-        item.setdefault('key_word', 'None')
+        item.setdefault('key_word', ['None'])
         item.setdefault('organization', 'None')
         # ...
         return item

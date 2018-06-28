@@ -18,17 +18,15 @@ class XueshuspiderItem(scrapy.Item):
     pass
 
 
-def date_convert(value):
-    try:
-        create_date = datetime.datetime.strptime(value, '%Y').date()
-    except Exception as e:
-        create_date = datetime.datetime.now().date()
-        print(e)
-    return create_date
-
-
 def get_key_word(value):
     return value.replace('\r\n', '').replace(' ', '').replace(';', '')
+
+
+def get_cnkn_summary(value):
+    simple_value = value.replace('\r\n', '').strip()
+    if simple_value == '':
+        return
+    return value
 
 
 class PaperItemLoader(ItemLoader):
@@ -40,9 +38,9 @@ class PaperItem(scrapy.Item):
     author = scrapy.Field()
     publication = scrapy.Field()
     cited = scrapy.Field()
-    summary = scrapy.Field()
+    summary = scrapy.Field(input_processor=MapCompose(get_cnkn_summary))
     key_word = scrapy.Field(output_processor=MapCompose(get_key_word))
     organization = scrapy.Field()
-    date_year = scrapy.Field(input_processor=MapCompose(date_convert))
+    date_year = scrapy.Field()
     url = scrapy.Field()
     is_down = scrapy.Field()

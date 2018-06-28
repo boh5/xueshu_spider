@@ -990,7 +990,7 @@
     </column>
     <column id="250" parent="241" name="date_year">
       <Position>8</Position>
-      <DataType>date|0s</DataType>
+      <DataType>int(4)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="251" parent="241" name="url">
