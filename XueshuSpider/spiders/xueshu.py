@@ -139,7 +139,6 @@ class XueshuSpider(scrapy.Spider):
         else:
             return
 
-
     def parse_detail(self, response):
         title = response.meta.get('title')
         author = response.meta.get('author')
@@ -183,6 +182,9 @@ class XueshuSpider(scrapy.Spider):
             item_loader.add_css('summary', 'div[style="text-align:left;word-break:break-all"]::text')
             item_loader.add_value('organization', publication.replace('《', '').replace('》', ''))
 
+            key_word_cache = response.css('head meta[name="keywords"]::attr(content)').extract_first('None')
+            item_loader.add_value('key_word', key_word_cache.split())
+
         if site == '知网期刊':
             item_loader.add_css('summary', '#ChDivSummary::text')
             item_loader.add_css('key_word', '.wxBaseinfo a[onclick*="TurnPageToKnet(\'kw\'"]::text')
@@ -191,6 +193,9 @@ class XueshuSpider(scrapy.Spider):
         if site == 'cpfd知网':
             item_loader.add_css('summary', 'div.xx_font:nth-child(4)::text')
             item_loader.add_css('organization', 'div.xx_font:nth-child(5) > a:nth-child(2)::text')
+
+            key_word_cache = response.css('head meta[name="keywords"]::attr(content)').extract_first('None')
+            item_loader.add_value('key_word', key_word_cache.split())
 
 
 
