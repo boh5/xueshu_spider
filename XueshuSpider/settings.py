@@ -54,8 +54,6 @@ COOKIES_ENABLED = False
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
    'XueshuSpider.middlewares.RandomUserAgentMiddleware': 543,
-   # 'XueshuSpider.middlewares.JSPageMiddleware': 545,
-   # 'XueshuSpider.middlewares.RandomProxyMiddleware': 540,
    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
 }
 

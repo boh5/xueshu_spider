@@ -4,10 +4,9 @@
 @Time    : 2018/6/23 22:26
 @File    : crawl_xici_ip.py
 """
+import MySQLdb
 import requests
 from scrapy.selector import Selector
-import MySQLdb
-
 
 conn = MySQLdb.connect(host='127.0.0.1', user='root', password='root', database='xueshu_spider', charset='utf8')
 cursor = conn.cursor()
@@ -67,7 +66,7 @@ class GetIp(object):
     def judge_ip(self, ip, port):
         # 判断ip是否可用
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                             'Chrome/67.0.3396.87 Safari/537.36'}
+                                 'Chrome/67.0.3396.87 Safari/537.36'}
         http_url = 'https://xueshu.baidu.com'
         proxy_url = 'https://{0}:{1}'.format(ip, port)
         proxy_dict = {

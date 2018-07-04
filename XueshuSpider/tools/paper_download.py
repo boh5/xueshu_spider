@@ -5,7 +5,6 @@
 @File    : paper_download.py
 """
 import re
-import time
 
 import MySQLdb
 from selenium import webdriver
@@ -49,9 +48,11 @@ class MySQLAccess(object):
 class DownloadPaper():
     def __init__(self):
         options = webdriver.ChromeOptions()
-        prefs = {'profile.default_content_settings.popups': 0, 'download.default_directory': 'D:\Files\PythonProject\XueshuSpider\down_papers'}
+        prefs = {'profile.default_content_settings.popups': 0,
+                 'download.default_directory': 'D:\Files\PythonProject\XueshuSpider\down_papers'}
         options.add_experimental_option('prefs', prefs)
-        self.browser = webdriver.Chrome(executable_path='D:\Files\PythonProject\chromedriver.exe', chrome_options=options)
+        self.browser = webdriver.Chrome(executable_path='D:\Files\PythonProject\chromedriver.exe',
+                                        chrome_options=options)
         self.browser.implicitly_wait(5)
 
     def download_paper(self, url):
@@ -73,7 +74,6 @@ class DownloadPaper():
 if __name__ == '__main__':
     db = MySQLAccess()
     down = DownloadPaper()
-    # db.update_file_path('test_path', 'http://kns.cnki.net/KCMS/detail/detail.aspx?filename=dzru201722018&dbname=CJFD&dbcode=CJFQ')
     urls = db.get_urls()
     for url in urls:
         page_url = url[0]

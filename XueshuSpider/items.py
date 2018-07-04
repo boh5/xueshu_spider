@@ -4,18 +4,10 @@
 #
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/items.html
-import datetime
-import re
 
 import scrapy
 from scrapy.loader import ItemLoader
-from scrapy.loader.processors import MapCompose, TakeFirst, Join, Compose
-
-
-class XueshuspiderItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+from scrapy.loader.processors import MapCompose, TakeFirst
 
 
 def get_key_word(value):

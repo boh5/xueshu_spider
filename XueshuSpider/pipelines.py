@@ -8,11 +8,6 @@ import MySQLdb
 from twisted.enterprise import adbapi
 
 
-class XueshuspiderPipeline(object):
-    def process_item(self, item, spider):
-        return item
-
-
 class MysqlTwistedPipeline(object):
     # 将数据存入数据库
     def __init__(self, dbpool):
