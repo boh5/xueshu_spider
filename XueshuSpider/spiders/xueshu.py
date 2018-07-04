@@ -10,9 +10,9 @@ from XueshuSpider.items import PaperItem, PaperItemLoader
 
 class XueshuSpider(scrapy.Spider):
     name = 'xueshu'
-    allowed_domains = ['xueshu.baidu.com', 'kns.cnki.net', 'd.wanfangdata.com.cn', 'cqvip.com', 'cdmd.cnki.com.cn',
+    allowed_domains = ['xueshu.baidu.com', 'kns.cnki.net',
+                       'd.wanfangdata.com.cn', 'cdmd.cnki.com.cn',
                        'www.wanfangdata.com.cn', 'cpfd.cnki.com.cn']
-    baidu_xueshu_page = 0
     key_word = 'python+爬虫'
     start_urls = ['http://xueshu.baidu.com/s?wd={0}'.format(key_word)]
 

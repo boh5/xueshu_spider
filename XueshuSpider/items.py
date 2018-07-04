@@ -26,13 +26,16 @@ class PaperItemLoader(ItemLoader):
 
 
 class PaperItem(scrapy.Item):
-    title = scrapy.Field()
-    author = scrapy.Field()
-    publication = scrapy.Field()
-    cited = scrapy.Field()
-    summary = scrapy.Field(input_processor=MapCompose(get_cnkn_summary))
-    key_word = scrapy.Field(output_processor=MapCompose(get_key_word))
-    organization = scrapy.Field()
-    date_year = scrapy.Field()
-    url = scrapy.Field()
-    is_down = scrapy.Field()
+    """
+    爬虫所需爬取的字段
+    """
+    title = scrapy.Field()  # 标题
+    author = scrapy.Field()  # 作者
+    publication = scrapy.Field()  # 出版机构
+    cited = scrapy.Field()  # 被引用量
+    summary = scrapy.Field(input_processor=MapCompose(get_cnkn_summary))  # 摘要
+    key_word = scrapy.Field(output_processor=MapCompose(get_key_word))  # 关键词
+    organization = scrapy.Field()  # 所属机构
+    date_year = scrapy.Field()  # 出版年份
+    url = scrapy.Field()  # 链接地址
+    is_down = scrapy.Field()  # 是否已下载
