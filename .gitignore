@@ -113,3 +113,6 @@ venv.bak/
 *.iml
 out
 gen
+
+# Rule by myself
+down_papers
