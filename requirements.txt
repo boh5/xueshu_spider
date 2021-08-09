@@ -21,7 +21,7 @@ pycparser==2.18
 PyDispatcher==2.0.5
 pyOpenSSL==18.0.0
 PyVirtualDisplay==0.2.1
-pywin32==223
+pywin32==301
 queuelib==1.5.0
 requests==2.19.1
 Scrapy==1.5.0
